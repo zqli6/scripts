@@ -1,11 +1,11 @@
 #!/bin/bash
 #
 #********************************************************************
-#Author:            wangxiaochun
-#QQ:                29308620
+#Author:            zqli
+#QQ:                412001070
 #Date:              2026-01-15
-#FileName:          1.sh
-#URL:               http://www.wangxiaochun.com
+#FileName:          wechat_and_dingding_API.sh
+#URL:               
 #Description:       The test script
 #Copyright (C):     2026 All rights reserved
 #********************************************************************
@@ -93,7 +93,6 @@ fi
 
 
 wechat_webhook() {
-   echo "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=37a0583c-ccd8-47f4-ba85-03a3c07050ae"
    while true;do
    echo -e "\e[1;32m请输入微信群聊机器人webhook\e[0m"
    read wechat_webhook
