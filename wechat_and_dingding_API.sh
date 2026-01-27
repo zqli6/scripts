@@ -83,7 +83,7 @@ local data='{
 
 response=$(curl -s -X POST "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=$access_token" -H "Content-Type: application/json" -d "$data")
 
-echo $response
+#echo $response
 if echo "$response" | grep -q '"errcode":0';then
    echo -e "\n\n\e[1;32m╰(*°▽°*)╯  信息推送成功\e[0m"
 else
