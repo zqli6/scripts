@@ -1,0 +1,69 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    - uuid: aa478c8e58a64e4e9f5f6d26a5fe7b44
+      template: M66-template
+      name: M66-template
+      groups:
+        - name: Templates
+      items:
+        - uuid: 4e9527bc119844c2a994ef643cc09ee3
+          name: 'tcp_state[CLOSE-WAIT]连接数'
+          key: 'tcp_state[CLOSE-WAIT]'
+          delay: 1s
+          history: 90d
+        - uuid: 7387081d47d14de6b767192baa738511
+          name: 'tcp_state[CLOSED]连接数'
+          key: 'tcp_state[CLOSED]'
+          delay: 1s
+          history: 90d
+        - uuid: 33a4e60b106a41c5b9696d5e49d97a92
+          name: 'tcp_state[CLOSING]连接数'
+          key: 'tcp_state[CLOSING]'
+          delay: 1s
+          history: 90d
+        - uuid: f4b01648f6504bfd97f0f0ef1854cee1
+          name: 'tcp_state[ESTABLISHED]连接数'
+          key: 'tcp_state[ESTABLISHED]'
+          delay: 1s
+          history: 90d
+        - uuid: c605bb7d63a843a8bb6ff11ca34397dc
+          name: 'tcp_state[FIN-WAIT-1]连接数'
+          key: 'tcp_state[FIN-WAIT-1]'
+          delay: 1s
+          history: 90d
+        - uuid: f3d5e12856b54d2fb8da13fdeccce81e
+          name: 'tcp_state[FIN-WAIT-2]连接数'
+          key: 'tcp_state[FIN-WAIT-2]'
+          delay: 1s
+          history: 90d
+        - uuid: 3407d1def00d494eb4d61d701857ceb2
+          name: 'tcp_state[LAST-ACK]连接数'
+          key: 'tcp_state[LAST-ACK]'
+          delay: 1s
+          history: 90d
+        - uuid: 1e6705ecc0a240f2bbceccaef9b82fe3
+          name: 'tcp_state[LISTEN]连接数'
+          key: 'tcp_state[LISTEN]'
+          delay: 1s
+          history: 90d
+        - uuid: ae37cd0fda28445aaeb0b782e21075f7
+          name: 'tcp_state[SYN-RECV]连接数'
+          key: 'tcp_state[SYN-RECV]'
+          delay: 1s
+          history: 90d
+        - uuid: 47ae9926005948b9b3250143d38f6308
+          name: 'tcp_state[SYN-SENT]连接数'
+          key: 'tcp_state[SYN-SENT]'
+          delay: 1s
+          history: 90d
+        - uuid: d5d4a320458e4059849aec072f33ca99
+          name: 'tcp_state[TIME-WAIT]连接数'
+          key: 'tcp_state[TIME-WAIT]'
+          delay: 1s
+          history: 90d
+
+
