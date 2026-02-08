@@ -7,16 +7,16 @@ git clone https://github.com/zqli6/scripts/
 wget https://raw.githubusercontent.com/zqli6/scripts/main/path/to/file
 ```
 **3. Clone this repostory with ssh**
-    3.1 Cpoy public key to github
+- 3.1 Cpoy public key to github
 ```
 cat ~/.ssh/id_rsa.pub
 ```
 GitHub → Settings → SSH and GPG keys → New SSH key
-    3.2 Test connect
+- 3.2 Test connect
 ```
 ssh -T git@github.com
 ```
-    3.3 Clone 
+- 3.3 Clone 
 ```python
 git clone git@github.com:zqli6/scripts.git
 ```
