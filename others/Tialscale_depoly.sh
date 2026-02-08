@@ -222,7 +222,7 @@ Tailscale() {
     echo "请输入authkey(tskey-auth-xxxxxxxxxxxx)"
     read -p ">" authkey
     for host in "${HOSTS[@]}"; do
-    echo -e "\n\e[1;33m配置 $host...\e[0m\n"
+    echo -e "\n配置 $host...\n"
     
     # 分离安装和启动步骤，便于调试
     if ssh "$host" "curl -fsSL https://tailscale.com/install.sh | sh" && \
