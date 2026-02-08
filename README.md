@@ -4,22 +4,42 @@
 git clone https://github.com/zqli6/scripts/
 ```
 - Gitee
-**2. To get one file of this repository**
+```
+git clone https://gitee.com/zqli6/scripts/
+```
+# 2. To get one file of this repository
+- GitHub
 ```python
 wget https://raw.githubusercontent.com/zqli6/scripts/main/path/to/file
 ```
-**3. Clone this repostory with ssh**
-   1. Cpoy public key to github
+- Gitee
+```
+wget https://gitee.com/zqli6/scripts/raw/main/path/to/file
+```
+# 3. Clone this repostory with ssh
+- Cpoy public key to github
 ```
 cat ~/.ssh/id_rsa.pub
 ```
+- GitHub
 GitHub → Settings → SSH and GPG keys → New SSH key
-
-   2. Test connect
+ - Gitee
+Gitee → 设置 → SSH公钥 → 添加公钥
+- Test connect
+ - GitHub 
 ```
 ssh -T git@github.com
 ```
-   3. Clone 
+ - Gitee
+```
+ssh -T git@gitee.com
+```
+- Clone
+ - GitHub
 ```python
 git clone git@github.com:zqli6/scripts.git
+```
+ -Gitee
+```
+git clone git@gitee.com:zqli6/scripts.git
 ```
