@@ -75,22 +75,22 @@ while true;do
                              echo -e "\e[32m---正在安装缺失命令---\e[0m"
                              apt update &> /dev/null
                              if ! type ping > /dev/null 2>&1;then
-                                     apt install iputils-ping -y &> /dev/null
-                             else apt install expect -y &> /dev/null
+                                     apt install iputils-ping -y
+                             else apt install expect -y
                              fi
                         elif command -v yum > /dev/null 2>&1;then
                              echo -e "\e[32m---正在安装缺失命令---\e[0m"
                              yum update &> /dev/null
                              if ! type ping > /dev/null 2>&1;then
-                                     yum install iputils-ping -y &> /dev/null
-                             else yum install expect -y &> /dev/null
+                                     yum install iputils-ping -y
+                             else yum install expect -y
                              fi
                         elif command -v dnf &> /dev/null;then
                              echo -e "\e[32m---正在安装缺失命令---\e[0m"
                              dnf update &> /dev/null
                              if ! type ping > /dev/null 2>&1;then
-                                     dnf install iputils-ping -y &> /dev/null
-                             else dnf install expect -y &> /dev/null
+                                     dnf install iputils-ping -y
+                             else dnf install expect -y
                              fi
                         else
                              echo -e "\e[31m!!!未找到包管理器!!!\e[0m"
