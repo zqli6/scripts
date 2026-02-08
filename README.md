@@ -11,7 +11,8 @@ wget https://raw.githubusercontent.com/zqli6/scripts/main/path/to/file
 ```
 cat ~/.ssh/id_rsa.pub
 ```
-GitHub → Settings → SSH and GPG keys → New SSH key  
+GitHub → Settings → SSH and GPG keys → New SSH key
+
    2. Test connect
 ```
 ssh -T git@github.com
