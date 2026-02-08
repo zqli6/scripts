@@ -21,10 +21,10 @@ wget https://gitee.com/zqli6/scripts/raw/main/path/to/file
 ```
 cat ~/.ssh/id_rsa.pub
 ```
-1. GitHub
-   and GPG keys → New SSH key
-3. Gitee
-   Gitee → 设置 → SSH公钥 → 添加公钥
+1. GitHub  
+GitHub → Setting → SSH and GPG keys → New SSH key
+3. Gitee  
+Gitee → 设置 → SSH公钥 → 添加公钥
 ## 3.2 Test connect
 1. GitHub 
 ```
