@@ -1,11 +1,58 @@
 #!/bin/bash
+#auth：lizhiquan
+#date：02-08
 #功能：多主机免密认证
 
-PASSWD="123456"
-EULERPASSWD="W!@#$%^w"
-HOSTS=(10.0.0.1{2..8})
+echo -e "\e[1;32m支持双主机并行验证，每台主机配置独立密码\e[0m\n"
 
+#密码收集函数
+collect_passwd() {
+    echo "请输入密码支持两个密码，首位密码错误自动尝试第二位密码，若没有第二个密码可不输入"
+    read -e -s -p "首密码：" PASSWD
+    read -e -s -p "备密码：" EULERPASSWD
+}
 
+#ip收集函数
+collect_ips() {
+    # 定义ip格式及大小范围用于判断
+    PREFIX_REGEX='^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]|[0-9])\.){3}$'
+    IP_REGEX='^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]|[0-9])$'
+    # 读取前缀
+    read -e -p "输入网络前缀（X.X.X.）： " prefix
+    while [[ ! $prefix =~ $PREFIX_REGEX ]]; do
+        read -e -p "格式错误，重新输入： " prefix
+    done
+    
+    # 读取IP
+    echo -e "\n输入IP（完整IP 或 最后一段数字，空格分隔）："
+    read -e -p "> " ip_input
+    
+    # 处理输入的IP
+    ips=()
+    for x in $ip_input; do
+        # 直接检查是否是完整IP
+        if [[ $x =~ $IP_REGEX ]]; then
+            HOSTS+=("$x")
+        
+        # 如果是纯数字，先拼接再验证
+        elif [[ $x =~ ^[0-9]+$ ]]; then
+            full_ip="${prefix}${x}"
+            if [[ $full_ip =~ $IP_REGEX ]]; then
+                HOSTS+=("$full_ip")
+            else
+                echo "跳过: $x (拼接后无效: $full_ip)"
+            fi
+        
+        else
+            echo "跳过: $x"
+        fi
+    done
+    
+    # 返回结果
+    echo "${HOSTS[@]}"
+}
+
+install_tools() {
 while true;do
         #判断是否已安装expect
         if type expect > /dev/null 2>&1 && type ping > /dev/null 2>&1;then
@@ -55,7 +102,7 @@ while true;do
                         ;;
      esac
 done
-
+}
 
 new_keygen () {
         rm -rf ~/.ssh/*
@@ -80,18 +127,6 @@ echo -e "\e[32m>>>SSH密钥生成完成<<<\e[0m"
 
 ssh_copy_id () {
 
-#本地认证
-#/usr/bin/expect > /dev/null 2>&1  <<-EOF
-#set timeout 5
-##log_user 0  # 关闭 expect 的输出
-#spawn ssh-copy-id root@127.1
-#expect {
-#  "yes/no/" { send "yes\r";exp_continue }
-#  "password" { send "$PASSWD\r" }
-#}
-#expect eof
-#EOF                          没有必要本地认证
-
 local pub_keys=$(echo /root/.ssh/*.pub)
 #在utunut和rocky中公钥名称不一致，expect中不能解析*.pub，使用局部变量方法定义
 for i in ${HOSTS[@]};do
@@ -106,14 +141,6 @@ for i in ${HOSTS[@]};do
 set timeout 5
 #将expect的标准和错误输出导入/dev/null实现静默
 #log_user 0  # 关闭 expect 的输出
-
-#传递公钥到远程主机
-#spawn scp /root/.ssh/*b root@$i:/root/.ssh/
-#expect {
-#  "yes/no" { send "yes\r";exp_continue }
-#  "password" { send "$PASSWD\r" }
-#  "already exist" { send "\r" }
-#}                                             #scp的方式并不科学和精准
 
 spawn bash -c "cat $pub_keys | ssh root@$i 'cat >> /root/.ssh/authorized_keys'"
 #bash -c 在expect中执行shell命令
@@ -141,40 +168,36 @@ done
 }
 
 #判断是否存在私钥
-if [ -f ~/.ssh/id_rsa -o -f ~/.ssh/id_ed25519 ]; then
-        while true;do
-        read -n 3 -t 10 -p "已存在私钥,是否重新生成(y/n)" choice
+key_exist() {
+if [ -f ~/.ssh/id_rsa ] || [ -f ~/.ssh/id_ed25519 ]; then
+    while true; do
+        read -r -t 10 -p "已存在私钥，是否重新生成？(y/n): " choice
         
-        # 检查是否超时（read命令返回非零状态码）
         if [ $? -ne 0 ]; then
-        # $? 上一条命令的退出状态码
-                echo -e "\n超时未输入，自动退出 "
-                exit 1
+            echo -e "\n超时未输入，自动退出"
+            exit 1
         fi
-
-          case "$choice" in
-                n|N|no|No|NO)
-                        echo -e "\e[32m>>>以原私钥进行免密认证<<<\e[0m"
-                        ssh_copy_id
-                        break
-                        ;;
-                y|Y|yes|Yes|YES)
-                        echo -e "\e[32m>>>重新生成私钥<<<\e[0m"
-                        new_keygen
-                        ssh_copy_id
-                        break
-                        ;;
-                *)
-                        echo "无效输入，请重新输入"
-                        ;;
-          esac
-       done
+        
+        # 使用正则表达式判断
+        if [[ "$choice" =~ ^[Nn]([Oo])?$ ]]; then
+            echo -e "\e[32m>>> 以原私钥进行免密认证 <<<\e[0m"
+            break
+        elif [[ "$choice" =~ ^[Yy]([Ee][Ss])?$ ]]; then
+            echo -e "\e[32m>>> 重新生成私钥 <<<\e[0m"
+            new_keygen
+            break
+        else
+            echo "无效输入，请重新输入 y 或 n"
+        fi
+    done
 else
-        new_keygen
-        ssh_copy_id
+    echo -e "\e[32m>>> 生成新私钥 <<<\e[0m"
+    new_keygen
 fi
+}
 
 #验证远程连接是否成功
+check() {
 for i in ${HOSTS[@]};do
 ping $i -c1 &> /dev/null
        if [ $? -ne 0 ];then 
@@ -192,3 +215,11 @@ expect eof
 EOF
 fi
 done
+}
+
+install_tools
+collect_ips
+collect_passwd
+key_exist
+ssh_copy_id
+check
