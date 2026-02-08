@@ -1,7 +1,9 @@
-**1. Clone this repository with https**
+# 1. Clone this repository with https
+- GitHub
 ```python
 git clone https://github.com/zqli6/scripts/
 ```
+- Gitee
 **2. To get one file of this repository**
 ```python
 wget https://raw.githubusercontent.com/zqli6/scripts/main/path/to/file
