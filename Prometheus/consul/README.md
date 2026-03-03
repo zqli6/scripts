@@ -1,0 +1,1 @@
+在使用docker compose部署consul时，注意配置文件的路径对应关系
