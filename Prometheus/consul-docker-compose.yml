@@ -1,0 +1,17 @@
+version: '3.6'
+volumes:
+  consul_data: {}
+networks:
+  monitoring:
+    driver: bridge
+services:
+  consul:
+    image: consul:1.14
+    volumes:
+      - ./consul_configs:/consul/config
+      - consul_data:/consul/data/
+    networks:
+      - monitoring
+    ports:
+      - 8500:8500
+    command: ["consul","agent","-dev","-bootstrap","-config-dir","/consul/config","-data-dir","/consul/data","-ui","-log-level","INFO","-bind","127.0.0.1","-client","0.0.0.0"]
