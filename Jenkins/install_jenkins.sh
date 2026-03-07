@@ -1,5 +1,6 @@
 #!/bin/bash
 #FileName: install_jenkins.sh
+#说明：需手动修改Jenkins二进制包版本地址
 
 URL="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/jenkins-2.289.3-1.1.noarch.rpm"
 # URL="https://mirrors.tuna.tsinghua.edu.cn/jenkins/debian-stable/jenkins_2.289.3_all.deb"
