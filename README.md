@@ -27,4 +27,4 @@ git clone https://github.com/zqli6/scripts/
 git clone https://gitee.com/zqli6/scripts/
 ```
 
-> 环境：Ubuntu 20.04+ / Rocky Linux 8+
+> 环境：Ubuntu 20.04+ / Rocky 8+
