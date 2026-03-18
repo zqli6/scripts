@@ -41,31 +41,3 @@ git clone git@github.com:zqli6/scripts.git
 # SSH - Gitee
 git clone git@gitee.com:zqli6/scripts.git
 ```
-
-# 3. Clone this repostory with ssh
-## 3.1 Cpoy public key to github
-```
-cat ~/.ssh/id_rsa.pub
-```
-1. GitHub  
-GitHub → Setting → SSH and GPG keys → New SSH key
-3. Gitee  
-Gitee → 设置 → SSH公钥 → 添加公钥
-## 3.2 Test connect
-1. GitHub 
-```
-ssh -T git@github.com
-```
-2. Gitee
-```
-ssh -T git@gitee.com
-```
-## 3.3 Clone
-1. GitHub
-```python
-git clone git@github.com:zqli6/scripts.git
-```
-2. Gitee
-```
-git clone git@gitee.com:zqli6/scripts.git
-```
