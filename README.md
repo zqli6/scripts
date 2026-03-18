@@ -42,26 +42,6 @@ git clone git@github.com:zqli6/scripts.git
 git clone git@gitee.com:zqli6/scripts.git
 ```
 
-
-
-# 1. Clone this repository with https
-1. GitHub
-```python
-git clone https://github.com/zqli6/scripts/
-```
-2. Gitee
-```
-git clone https://gitee.com/zqli6/scripts/
-```
-# 2. To get one file of this repository
-1. GitHub
-```python
-wget https://raw.githubusercontent.com/zqli6/scripts/main/path/to/file
-```
-2. Gitee
-```
-wget https://gitee.com/zqli6/scripts/raw/main/path/to/file
-```
 # 3. Clone this repostory with ssh
 ## 3.1 Cpoy public key to github
 ```
