@@ -1,13 +1,10 @@
 #!/bin/bash
 #
 #********************************************************************
-#Author:            wangxiaochun
-#QQ:                29308620
-#Date:              2020-02-07
+#Author:            lizhiquan
+#QQ:                zqli6@qq.com
 #FileName:          install_node_exporter.sh
-#URL:               http://www.wangxiaochun.com
 #Description:       The test script
-#Copyright (C):     2020 All rights reserved
 #********************************************************************
 
 #支持在线和离线安装，建议离线安装
