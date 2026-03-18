@@ -2,21 +2,6 @@
 
 运维自动化脚本合集，收录日常运维工作中常用工具的安装与配置脚本，覆盖监控、CI/CD、数据库、VPN 等多个方向。所有脚本均在 CentOS / Rocky Linux 环境下验证，支持通过 GitHub 或 Gitee 获取单个文件使用。
 
-## 目录说明
-
-| 目录 | 说明 |
-|------|------|
-| `Jenkins/` | Jenkins 安装与初始化配置脚本 |
-| `Prometheus/` | Prometheus 及 Exporter 安装脚本 |
-| `Redis/` | Redis 安装与基础配置脚本 |
-| `zabbix/` | Zabbix Server / Agent 安装脚本 |
-| `openvpn/` | OpenVPN 服务端安装与客户端配置脚本 |
-| `others/` | 其他常用运维脚本（系统初始化、日志清理等）|
-
-# scripts
-
-用于快速在新机器上安装和配置常用运维工具，同时包含部分测试和告警脚本。
-
 ## 包含内容
 
 1. **Jenkins**：安装脚本
