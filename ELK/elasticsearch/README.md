@@ -10,7 +10,7 @@
    - 下载地址：<https://www.elastic.co/cn/downloads/elasticsearch>  
 
 2. 配置参考  
-  lzq学习文档：<https://www.yuque.com/office/yuque/0/2026/pdf/61945248/1774575824270-2f189c00-fb31-4700-8857-978ae4af28ec.pdf?from=https%3A%2F%2Fwww.yuque.com%2Fjianglai-iayzx%2Fsa1zul%2Fmm8hhtlxgy3xuwsa>  
+  lzq学习文档：[点击查看](https://www.yuque.com/office/yuque/0/2026/pdf/61945248/1774575824270-2f189c00-fb31-4700-8857-978ae4af28ec.pdf?from=https%3A%2F%2Fwww.yuque.com%2Fjianglai-iayzx%2Fsa1zul%2Fmm8hhtlxgy3xuwsa)  
 ```
 [root@elasticsearch ]# grep -Ev '#|^$' /etc/elasticsearch/elasticsearch.yml 
 # 集群名称：同一个集群内的所有节点必须配置相同的集群名
