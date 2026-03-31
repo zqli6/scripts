@@ -1,3 +1,14 @@
+# elasticsearch安装
+1. 链接   
+配置文档：<https://www.elastic.co/docs/deploy-manage/deploy/self-managed/configure-elasticsearch>  
+安装文档：<https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch>  
+部署要求:  
+  1. java版本  
+  <https://www.elastic.co/support/matrix>  
+  2. 系统要求
+  <https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration>  
+下载地址：<https://www.elastic.co/cn/downloads/elasticsearch>  
+
 # elasticsearch的web查看插件  
 1.  ElasticSearch-Head  
     1. 只能在chrome内核浏览器(goole和edge)使用   
