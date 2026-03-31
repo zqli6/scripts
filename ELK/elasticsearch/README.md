@@ -9,7 +9,7 @@
       <https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration>  
    - 下载地址：<https://www.elastic.co/cn/downloads/elasticsearch>  
 
-2.配置参考  
+2. 配置参考  
 ```
 [root@elasticsearch ]# grep -Ev '#|^$' /etc/elasticsearch/elasticsearch.yml 
 # 集群名称：同一个集群内的所有节点必须配置相同的集群名
