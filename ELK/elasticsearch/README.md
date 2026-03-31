@@ -1,15 +1,15 @@
 # elasticsearch的web查看插件  
 1.  ElasticSearch-Head  
-   1. 只能在chrome内核浏览器(goole和edge)使用   
-   2. 获取：下载ElasticSearch-Head-0.1.5_0.zip  
-      1. 解压  
-      2. 浏览器设置--->扩展插件--->开启开发者模式--->加载解压缩的扩展  
-      3. 选择ElasticSearch-Head-0.1.5_0/0.1.5_0文件  
+  1. 只能在chrome内核浏览器(goole和edge)使用   
+  2. 获取：下载ElasticSearch-Head-0.1.5_0.zip  
+     1. 解压  
+     2. 浏览器设置--->扩展插件--->开启开发者模式--->加载解压缩的扩展  
+     3. 选择ElasticSearch-Head-0.1.5_0/0.1.5_0文件  
 2. cerebro   
-   1. 官网  
+  1. 官网  
    <https://github.com/lmenezes/cerebro>
-   2. 下载安装相应的包
-   3. 配置
+  2. 下载安装相应的包
+  3. 配置
    ```
    #默认无法启动,查看日志,可以看到以下提示,原因是默认cerebro.db文件所有目录没有权限导致[root@ubuntu2404 ~]#journalctl -u cerebro
     Caused by: java.sql.SQLException: opening db: './cerebro.db': 权限不够
