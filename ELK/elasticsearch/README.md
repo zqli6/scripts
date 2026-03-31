@@ -7,9 +7,13 @@
        3. 选择ElasticSearch-Head-0.1.5_0/0.1.5_0文件  
 2. cerebro   
     1. 官网  
-   <https://github.com/lmenezes/cerebro>
-    2. 下载安装相应的包
-    3. 配置
+   <https://github.com/lmenezes/cerebro>  
+    2. 下载安装相应的包  
+    3. 安装java 11+
+    ```
+    apt install openjdk-11-jdk -y
+    ```
+    3. 配置  
    ```
    #默认无法启动,查看日志,可以看到以下提示,原因是默认cerebro.db文件所有目录没有权限导致[root@ubuntu2404 ~]#journalctl -u cerebro
     Caused by: java.sql.SQLException: opening db: './cerebro.db': 权限不够
