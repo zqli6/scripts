@@ -1,5 +1,6 @@
 # Logstash收集日志写入 MySQL 数据库
-1. lzq文档地址：<https://www.yuque.com/jianglai-iayzx/sa1zul/mm8hhtlxgy3xuwsa#Vh9CY>  
+1. lzq学习文档：  
+   [点击查看](https://www.yuque.com/jianglai-iayzx/sa1zul/mm8hhtlxgy3xuwsa#Vh9CY)  
 2. logstash输出数据到MySQL插件`logstash-output-jdbc`的安装  
 安装方位在线安装和离线导入  
    1. mysql官网下载地址：<https://downloads.mysql.com/archives/c-j/>  
