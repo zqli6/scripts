@@ -3,11 +3,12 @@
    - 配置文档：<https://www.elastic.co/docs/deploy-manage/deploy/self-managed/configure-elasticsearch>  
    - 安装文档：<https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch>  
    - 部署要求:  
-    1. java版本  
-    <https://www.elastic.co/support/matrix>  
-    2. 系统要求
-    <https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration>  
+      1. java版本  
+      <https://www.elastic.co/support/matrix>  
+      2. 系统要求
+      <https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration>  
    - 下载地址：<https://www.elastic.co/cn/downloads/elasticsearch>  
+
 2.配置参考  
 ```
 [root@elasticsearch ]# grep -Ev '#|^$' /etc/elasticsearch/elasticsearch.yml 
