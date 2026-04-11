@@ -34,9 +34,8 @@ declare -a IMAGES=(
 echo "========== 开始生产级同步 (共 ${#IMAGES[@]} 个镜像) =========="
 
 for full_src in "${IMAGES[@]}"; do
-    # 提取镜像名和标签用于 SWR
-    img_tag=$(echo "$full_src" | awk -F'/' '{print $NF}')
-    target_img="${SWR_PREFIX}/${img_tag}"
+    # 拼接镜像名和标签 SWR
+    target_img="${SWR_PREFIX}/${IMAGES}"
 
     echo "------------------------------------------------"
     echo "同步中: $full_src"
