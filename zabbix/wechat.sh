@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 #********************************************************************
-#Author:            wangxiaochun
-#QQ:                29308620
+#Author:            lizhiquan
+#QQ:                412001070
 #FileName:          wechat.sh
-#URL:               http://www.wangxiaochun.com
+#URL:               http://www.lizhiquan.com
 #Description:       Send message from wechat for zabbix monitor
 #Copyright (C):     2020 All rights reserved
 #********************************************************************

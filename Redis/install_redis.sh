@@ -1,11 +1,11 @@
 #!/bin/bash
 #
 #********************************************************************
-#Author:          wangxiaochun
-#QQ:              29308620
+#Author:          lizhiquan
+#QQ:              412001070
 #Date:            2020-07-22
 #FileName：       install_redis.sh
-#URL:             http://www.magedu.com
+#URL:             https://gitee.com/zqli6/
 #Description:     The test script
 #Copyright (C):   2020 All rights reserved
 #********************************************************************

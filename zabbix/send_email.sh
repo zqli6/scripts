@@ -1,11 +1,11 @@
 #!/bin/bash
 #
 #********************************************************************
-#Author:            wangxiaochun
-#QQ:                29308620
+#Author:            lizhiquan
+#QQ:                412001070
 #Date:              2020-02-31
 #FileName:          send_email.sh
-#URL:               http://www.wangxiaochun.com
+#URL:               http://www.lizhiquan.com
 #Description:       The test script
 #Copyright (C):     2020 All rights reserved
 #********************************************************************

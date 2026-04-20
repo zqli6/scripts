@@ -1,11 +1,11 @@
 #!/bin/bash
 #
 #********************************************************************
-#Author:            wangxiaochun
-#QQ:                29308620
+#Author:            lizhiquan
+#QQ:                412001070
 #Date:              2022-11-01
 #FileName:          dingtalk.sh
-#URL:               http://www.wangxiaochun.com
+#URL:               http://www.lizhiquan.com
 #Description:       The test script
 #Copyright (C):     2022 All rights reserved
 #********************************************************************
