@@ -5,7 +5,7 @@
 #QQ:                412001070
 #Date:              2020-06-03
 #FileName:          install_kafka.sh  
-#URL:               http://www.lizhiquan.com
+#URL:               https://gitee.com/zqli6/
 #Description:       The test script
 #Copyright (C):     2020 All rights reserved
 #********************************************************************

@@ -5,7 +5,7 @@
 #QQ:                412001070
 #Date:              2021-05-08
 #FileName:          ssh_key_push_all.sh
-#URL:               http://www.lizhiquan.com
+#URL:               https://gitee.com/zqli6/
 #Description:       多主机基于ssh key 互相验证
 #Copyright (C):     2021 All rights reserved
 #********************************************************************

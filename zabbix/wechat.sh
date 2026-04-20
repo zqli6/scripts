@@ -4,7 +4,7 @@
 #Author:            lizhiquan
 #QQ:                412001070
 #FileName:          wechat.sh
-#URL:               http://www.lizhiquan.com
+#URL:               https://gitee.com/zqli6/
 #Description:       Send message from wechat for zabbix monitor
 #Copyright (C):     2020 All rights reserved
 #********************************************************************

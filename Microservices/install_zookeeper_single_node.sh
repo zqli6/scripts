@@ -5,7 +5,7 @@
 #QQ:                412001070
 #Date:              2020-06-20
 #FileName:          install_zookeeper.sh
-#URL:               http://www.lizhiquan.com
+#URL:               https://gitee.com/zqli6/
 #Description:       The test script
 #Copyright (C):     2022 All rights reserved
 #********************************************************************
