@@ -1,15 +1,15 @@
 #!/bin/bash
 # *************************************
-# * 功能: Shell脚本模板
-# * 作者: 王树森
-# * 联系: wangshusen@sswang.com
+# * 功能: keepalived主备切换email通知
+# * 作者: 李芝全
+# * 联系: zqli6@qq.com
 # * 版本: 2025-08-01
 # *************************************
 
 # 配置邮件相关信息
-contact='wshs1117@126.com'       #需更改自己的QQ邮箱信息
-email_send='wshs1117@126.com'    #需更改自己的QQ邮箱信息
-email_passwd='LTZFDDIVDRNYOOAL'  #需更改自己的QQ邮箱信息
+contact='xxx@126.com'       #需更改自己的QQ邮箱信息
+email_send='xxx@126.com'    #需更改自己的QQ邮箱信息
+email_passwd='xxx'          #需更改自己的QQ邮箱信息
 email_smtp_server='smtp.126.com'
 
 # 加载操作系统信息
