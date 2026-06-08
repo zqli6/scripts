@@ -1,60 +1,28 @@
 #!/bin/bash
-# 作者：李芝全
-# 功能：拉取镜像改tag并上传
 
-echo "请确定脚本中的镜像名已修改"
-echo "请确定脚本中私有仓库地址已修改"
-echo "请确定已登录私有仓库"
+MY_REGISTRY="swr.cn-southwest-2.myhuaweicloud.com/zqli"
 
-# 华为云 SWR 仓库前缀
-SWR_PREFIX="swr.cn-southwest-2.myhuaweicloud.com/zqli"
-
-# 定义核心版本 (来自你的 Chart.yaml)
-OP_VER="v0.90.1"
-
-# 生产级显式清单：格式为 "源镜像地址"
-# 这里我帮你手动修正了所有域名和对应的 appVersion
-declare -a IMAGES=(
-"quay.io/prometheus/blackbox-exporter:v0.28.0"
-"ghcr.io/jimmidyson/configmap-reload:v0.15.0"
-"quay.io/brancz/kube-rbac-proxy:v0.21.0"
-"quay.io/prometheus/alertmanager:v0.31.1"
-"grafana/grafana:12.4.1"
-"registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0"
-"quay.io/brancz/kube-rbac-proxy:v0.21.0"
-"quay.io/brancz/kube-rbac-proxy:v0.21.0"
-"quay.io/prometheus/prometheus:v3.10.0"
-"quay.io/prometheus-operator/prometheus-operator:v0.89.0"
-"quay.io/brancz/kube-rbac-proxy:v0.21.0"
-"registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.12.0"
-"quay.io/prometheus/node-exporter:v1.10.2"
-"quay.io/brancz/kube-rbac-proxy:v0.21.0"
+images=(
+    "apache/skywalking-oap-server:9.7.0"
+    "apache/skywalking-ui:9.7.0"
+    "apache/skywalking-swck:v0.9.0"
+    "apache/skywalking-java-agent:9.2.0-java17"
+    "apache/skywalking-banyandb:0.7.0"
+    "quay.io/jetstack/cert-manager-controller:v1.14.5"
+    "quay.io/jetstack/cert-manager-webhook:v1.14.5"
+    "quay.io/jetstack/cert-manager-cainjector:v1.14.5"
+    "quay.io/jetstack/cert-manager-startupapicheck:v1.14.5"
 )
 
-echo "========== 开始生产级同步 (共 ${#IMAGES[@]} 个镜像) =========="
-
-for full_src in "${IMAGES[@]}"; do
-    # 拼接镜像名和标签 SWR
-    target_img="${SWR_PREFIX}/${IMAGES}"
-
-    echo "------------------------------------------------"
-    echo "同步中: $full_src"
-    
-    # 尝试拉取 (增加重试逻辑处理网络波动)
-    MAX_RETRIES=3
-    for ((i=1; i<=MAX_RETRIES; i++)); do
-        docker pull "$full_src" && break
-        echo "拉取失败，尝试第 $i 次重试..."
-        sleep 2
-    done
-
-    if [ $? -eq 0 ]; then
-        docker tag "$full_src" "$target_img"
-        docker push "$target_img"
-        echo "成功: $target_img"
-    else
-        echo ">>> 严重警告: $full_src 同步失败，请检查网络！"
-    fi
+for img in "${images[@]}"; do
+    echo "处理: ${img}"
+    # 直接拉取原始镜像
+    docker pull "${img}"
+    # 目标镜像名（保留原始路径，只更换 registry）
+    dest="${MY_REGISTRY}/${img}"
+    docker tag "${img}" "${dest}"
+    docker push "${dest}"
+    echo "完成: ${dest}"
+    docker rmi "${dest}"
+    echo "删除tag：${dest}"
 done
-
-echo "========== 同步任务结束 =========="
